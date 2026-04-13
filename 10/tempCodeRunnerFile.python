@@ -1,0 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D 
+
+x = np.linspace(-5, 5, 20)
+y = np.linspace(-5, 5, 20)
+
+X, Y = np.meshgrid(x, y)
+
+Z = 2*X + Y - 3
+
+x_rand = np.random.uniform(-5, 5, 5)
+y_rand = np.random.uniform(-5, 5, 5)
+
+z_rand = 2*x_rand + y_rand - 3
+
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+surface = ax.plot_surface(X, Y, Z, cmap='viridis', alpha=0.7)
+
+ax.scatter(x_rand, y_rand, z_rand, color='red', s=50, label='Случайные точки')
+
+ax.set_xlabel('Ось X')
+ax.set_ylabel('Ось Y')
+ax.set_zlabel('Ось Z')
+ax.set_title('3D Плоскость z = 2x + y - 3 и случайные точки')
+ax.legend()
+
+plt.show()

@@ -1,0 +1,5 @@
+file = open('chisla.txt','r')
+file_1 = open('nechisla.txt','w')
+file_1.write(file.read())
+file.close()
+file_1.close()
